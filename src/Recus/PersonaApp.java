@@ -3,8 +3,8 @@ package Recus;
 public class PersonaApp {
     public static void main(String[] args) {
         // Definició de constants GLOBALS
-        int EDAT_MAXIMA_PROFESSOR = 25;
-        int EDAT_MINIMA_PROFESSOR = 18;
+        int EDAT_MAXIMA_PROFESSOR = 65;
+        int EDAT_MINIMA_PROFESSOR = 20;
 
         // Definició de variables
         int quantitatDeProfessors = 0;
@@ -28,12 +28,12 @@ public class PersonaApp {
         for (int i = 0; i < esTitularProfessors.length; i++) {
 
             System.out.println("\n".repeat(3));
-            String cadenaTitol = "Dades del gos " + (i + 1) + " de " + quantitatDeProfessors + " Professors";
+            String cadenaTitol = "Dades del professor " + (i + 1) + " de " + quantitatDeProfessors + " Professors";
             System.out.println("\n" + cadenaTitol);
             System.out.println("=".repeat(cadenaTitol.length()) + "\n");
 
             // crear un objecte de la subclasse
-            nomsProfessors[i] = jpc.llegirCadena("Entra el nom del gos " + (i + 1) + ": ",
+            nomsProfessors[i] = jpc.llegirCadena("Entra el nom del professor " + (i + 1) + ": ",
                     "\n\tERROR!!\n\tCal que entris un nom!");
             edatsProfessors[i] = jpc.llegirEnterInterval(
                     "Entra l'edat de " + nomsProfessors[i].toUpperCase() +
@@ -43,24 +43,24 @@ public class PersonaApp {
                     EDAT_MINIMA_PROFESSOR, EDAT_MAXIMA_PROFESSOR);
 
             departamentsProfessors[i] = jpc.llegirCadena("Entra el departament de " + nomsProfessors[i].toUpperCase() + " : ",
-                    "\n\tERROR!!\n\tCal que entris un color!");
-            tePermisDeConduirProfessors[i] = jpc.llegirCadena("Entra el permis de de " + nomsProfessors[i].toUpperCase() + " : ",
-                    "\n\tERROR!!\n\tCal que entris una raça!");
+                    "\n\tERROR!!\n\tCal que entris un departament!");
+            nomsProfessors[i] = jpc.llegirCadena("Entra el nom de de " + nomsProfessors[i].toUpperCase() + " : ",
+                    "\n\tERROR!!\n\tCal que entris un nom!");
 
             // System.out.print("\tEntra si cal corretja per portar el primer dels gossos
             // (s/n): "); de " + nomsGossos[i].toUpperCase() + " : ",
-            opcioCorretja = jpc.llegirCaracterOpcions("Cal corretja per portar " + nomsGossos[i].toUpperCase() + " a passejar?: ",
+            opcioesTitular = jpc.llegirCaracterOpcions("Cal titular per portar " + nomsProfessors[i].toUpperCase() + " a clase?: ",
                     "ERROR!!", "sn").toLowerCase().substring(0, 1);
-            corretjaGossos[i] = (opcioCorretja == "s");
-            System.out.println("Has entrat que per portar a passejar a "
-                    + nomsGossos[i].toUpperCase() + ((opcioCorretja == "s")?" cal ":" no cal ") + "portar-lo lligat!");
+            esTitularProfessors[i] = (opcioesTitular == "s");
+            System.out.println("Has entrat que per portar a clase a "
+                    + nomsProfessors[i].toUpperCase() + ((opcioesTitular == "s")?" cal ":" no cal ") + "portar el titular!");
 
             // Creem una instancia de Gos amb totes les dades recollides
             // i l'afegim al vector de Gossos llistaDeGossos
-            llistaDeGossos[i] = new Gos(nomsGossos[i],edatsGossos[i],colorsGossos[i],rassesGossos[i],corretjaGossos[i]);
+            llistaDeProfessors[i] = new Professor(esTitularProfessors[i],nomsProfessors[i],edatsProfessors[i],departamentsProfessors[i],tePermisDeConduirProfessors[i]);
 
-            System.out.println("Aquestes són les dades de " + nomsGossos[i].toUpperCase() + "\n" +
-                    llistaDeGossos[i].toString());
+            System.out.println("Aquestes són les dades de " + nomsProfessors[i].toUpperCase() + "\n" +
+                    llistaDeProfessors[i].toString());
         }
     }
 }
