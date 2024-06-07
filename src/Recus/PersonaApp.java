@@ -9,43 +9,42 @@ public class PersonaApp {
         // Definició de variables
         int quantitatDeProfessors = 0;
 
-        quantitatDeProfessors = jpc.llegirEnter("Quants gossos vols entrar?: ",
+        quantitatDeProfessors = jpc.llegirEnter("Quants professors vols entrar?: ",
                 "\n\tERROR!!\n\tCal que entris un enter positiu!");
 
         System.out.println();
 
-        Gos[] llistaDeGossos = new Gos[quantitatDeGossos];
-
-        String[] nomsGossos = new String[quantitatDeGossos];
-        int[] edatsGossos = new int[quantitatDeGossos];
-        String[] colorsGossos = new String[quantitatDeGossos];
-        String[] rassesGossos = new String[quantitatDeGossos];
-        boolean[] corretjaGossos = new boolean[quantitatDeGossos];
-        String opcioCorretja;
+        Professor[] llistaDeProfessors = new Professor[quantitatDeProfessors];
+        String[] nomsProfessors = new String[quantitatDeProfessors];
+        int[] edatsProfessors = new int[quantitatDeProfessors];
+        String[] departamentsProfessors = new String[quantitatDeProfessors];
+        boolean[] tePermisDeConduirProfessors = new boolean[quantitatDeProfessors];
+        boolean[] esTitularProfessors = new boolean[quantitatDeProfessors];
+        String opcioesTitular;
 
         // Cridaré al constructor Gos que té només 4 paràmetres (
         // String _nom, int _edat, String _color, String _rasa, boolean _corretja)
         // No passaré el valor de l'atribut espècie i el posarà per defecte a Mamífer!
-        for (int i = 0; i < corretjaGossos.length; i++) {
+        for (int i = 0; i < esTitularProfessors.length; i++) {
 
             System.out.println("\n".repeat(3));
-            String cadenaTitol = "Dades del gos " + (i + 1) + " de " + quantitatDeGossos + " gossos";
+            String cadenaTitol = "Dades del gos " + (i + 1) + " de " + quantitatDeProfessors + " Professors";
             System.out.println("\n" + cadenaTitol);
             System.out.println("=".repeat(cadenaTitol.length()) + "\n");
 
             // crear un objecte de la subclasse
-            nomsGossos[i] = jpc.llegirCadena("Entra el nom del gos " + (i + 1) + ": ",
+            nomsProfessors[i] = jpc.llegirCadena("Entra el nom del gos " + (i + 1) + ": ",
                     "\n\tERROR!!\n\tCal que entris un nom!");
-            edatsGossos[i] = jpc.llegirEnterInterval(
-                    "Entra l'edat de " + nomsGossos[i].toUpperCase() +
-                            " (entre " + EDAT_MINIMA_GOS + " i " + EDAT_MAXIMA_GOS + "): ",
+            edatsProfessors[i] = jpc.llegirEnterInterval(
+                    "Entra l'edat de " + nomsProfessors[i].toUpperCase() +
+                            " (entre " + EDAT_MINIMA_PROFESSOR + " i " + EDAT_MAXIMA_PROFESSOR + "): ",
                     "\n\tERROR!!\n\tCal que entris un enter entre " +
-                            EDAT_MINIMA_GOS + " i " + EDAT_MAXIMA_GOS + "!",
-                    EDAT_MINIMA_GOS, EDAT_MAXIMA_GOS);
+                            EDAT_MINIMA_PROFESSOR + " i " + EDAT_MAXIMA_PROFESSOR + "!",
+                    EDAT_MINIMA_PROFESSOR, EDAT_MAXIMA_PROFESSOR);
 
-            colorsGossos[i] = jpc.llegirCadena("Entra el color de " + nomsGossos[i].toUpperCase() + " : ",
+            departamentsProfessors[i] = jpc.llegirCadena("Entra el departament de " + nomsProfessors[i].toUpperCase() + " : ",
                     "\n\tERROR!!\n\tCal que entris un color!");
-            rassesGossos[i] = jpc.llegirCadena("Entra la raça de de " + nomsGossos[i].toUpperCase() + " : ",
+            tePermisDeConduirProfessors[i] = jpc.llegirCadena("Entra el permis de de " + nomsProfessors[i].toUpperCase() + " : ",
                     "\n\tERROR!!\n\tCal que entris una raça!");
 
             // System.out.print("\tEntra si cal corretja per portar el primer dels gossos
